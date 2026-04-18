@@ -1,0 +1,193 @@
+.pricing-page {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 0 60px;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.pricing-content {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 80px 24px 0;
+
+    @media (max-width: 480px) {
+        padding: 70px 10px 0;
+    }
+}
+
+.pricing-content h1 {
+    font-family: var(--heading);
+    font-weight: 500;
+    color: var(--text-h);
+    font-size: 36px;
+    text-align: center;
+    margin: 32px 0 8px;
+}
+
+.pricing-subtitle {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+}
+
+.pricing-badge {
+    text-align: center;
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin: 0 auto 40px;
+    max-width: 420px;
+}
+
+.pricing-section {
+    margin-bottom: 40px;
+}
+
+.pricing-section h2 {
+    font-family: var(--heading);
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: var(--text-h);
+}
+
+.pricing-table-wrap {
+    overflow-x: auto;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.pricing-table thead {
+    background: #f0f0f0;
+}
+
+.pricing-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+}
+
+.pricing-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    text-align: left;
+}
+
+.pricing-table tbody tr:hover {
+    background: rgba(46, 125, 50, 0.04);
+}
+
+.pricing-table .price {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.pricing-table .price.beginner {
+    color: #2e7d32;
+}
+
+/* Travel Fee */
+.travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .travel-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.travel-card {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.travel-distance {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-h);
+}
+
+.travel-fee {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.travel-fee.free {
+    color: #2e7d32;
+}
+
+.travel-fee small {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #777;
+}
+
+/* CTA */
+.pricing-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+    .pricing-content h1 {
+        font-size: 28px;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+        padding: 10px 10px;
+        font-size: 13px;
+    }
+
+    .pricing-table .price {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-content h1 {
+        font-size: 22px;
+    }
+
+    .pricing-badge {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+
+    .pricing-table .price {
+        font-size: 13px;
+    }
+
+    .pricing-section h2 {
+        font-size: 1.15rem;
+    }
+}
