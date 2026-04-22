@@ -34,3 +34,8 @@
 ---
 
 **Note:** Repeat similar steps for non-prod using its tfvars and workspace.
+
+## 9. AWS Account
+- main - 927535349173
+- nonprod - 947999370466
+- prod - 610489687480

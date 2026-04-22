@@ -13,6 +13,7 @@ terraform {
     bucket = "skyhughes-terraform-state"
     key    = "skyhughes/terraform.tfstate"
     region = "us-east-1"
+    profile = "prod"
   }
 }
 

@@ -13,6 +13,7 @@ variable "domain_name" {
   description = "Custom domain name (used in prod only)"
   type        = string
   default     = ""
+}
 
 # AWS profile variables for multi-account support
 variable "aws_profile" {
@@ -37,8 +38,6 @@ variable "nonprod_aws_profile" {
   description = "AWS CLI profile for the non-prod account"
   type        = string
   default     = "nonprod"
-}
-
 }
 
 variable "project_name" {
