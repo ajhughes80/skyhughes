@@ -16,8 +16,32 @@ terraform {
   }
 }
 
+
+# Default provider (for current environment)
 provider "aws" {
-  region = var.aws_region
+  region  = var.aws_region
+  profile = var.aws_profile
+}
+
+# Provider for main account (legacy/migration)
+provider "aws" {
+  alias   = "main"
+  region  = var.aws_region
+  profile = var.main_aws_profile
+}
+
+# Provider for prod account
+provider "aws" {
+  alias   = "prod"
+  region  = var.aws_region
+  profile = var.prod_aws_profile
+}
+
+# Provider for non-prod account
+provider "aws" {
+  alias   = "nonprod"
+  region  = var.aws_region
+  profile = var.nonprod_aws_profile
 }
 
 # Provider alias for us-east-1 (required for CloudFront ACM certs)
