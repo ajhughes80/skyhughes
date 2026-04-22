@@ -10,30 +10,30 @@ const TO_EMAIL = "admin@skyhughes.net";
 const FROM_EMAIL = "\"SkyHughes Contact\" <admin@skyhughes.net>"; // Must be SES-verified
 
 export const handler = async (event) => {
-    const headers = {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-    };
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
 
-    // Handle CORS preflight (supports both REST API and HTTP API formats)
-    if (event.httpMethod === "OPTIONS" || event.requestContext?.http?.method === "OPTIONS") {
-        return { statusCode: 200, headers, body: "" };
+  // Handle CORS preflight (supports both REST API and HTTP API formats)
+  if (event.httpMethod === "OPTIONS" || event.requestContext?.http?.method === "OPTIONS") {
+    return { statusCode: 200, headers, body: "" };
+  }
+
+  try {
+    const body = JSON.parse(event.body);
+    const { name, email, phone, service, location, date, message } = body;
+
+    if (!name || !email || !service || !message) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: "Missing required fields" }),
+      };
     }
 
-    try {
-        const body = JSON.parse(event.body);
-        const { name, email, phone, service, location, date, message } = body;
-
-        if (!name || !email || !service || !message) {
-            return {
-                statusCode: 400,
-                headers,
-                body: JSON.stringify({ error: "Missing required fields" }),
-            };
-        }
-
-        const emailBody = `
+    const emailBody = `
 New Contact Form Submission - SkyHughes Aerial Media
 =====================================================
 
@@ -48,7 +48,7 @@ Project Details:
 ${message}
     `.trim();
 
-        const htmlBody = `
+    const htmlBody = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,34 +158,34 @@ ${message}
 </body>
 </html>`.trim();
 
-        console.log("Sending HTML email for:", name, service);
+    console.log("Sending HTML email for:", name, service);
 
-        const command = new SendEmailCommand({
-            Source: FROM_EMAIL,
-            Destination: { ToAddresses: [TO_EMAIL] },
-            Message: {
-                Subject: { Data: `New Inquiry: ${service} - ${name}`, Charset: "UTF-8" },
-                Body: {
-                    Text: { Data: emailBody, Charset: "UTF-8" },
-                    Html: { Data: htmlBody, Charset: "UTF-8" },
-                },
-            },
-            ReplyToAddresses: [email],
-        });
+    const command = new SendEmailCommand({
+      Source: FROM_EMAIL,
+      Destination: { ToAddresses: [TO_EMAIL] },
+      Message: {
+        Subject: { Data: `New Inquiry: ${service} - ${name}`, Charset: "UTF-8" },
+        Body: {
+          Text: { Data: emailBody, Charset: "UTF-8" },
+          Html: { Data: htmlBody, Charset: "UTF-8" },
+        },
+      },
+      ReplyToAddresses: [email],
+    });
 
-        await ses.send(command);
+    await ses.send(command);
 
-        return {
-            statusCode: 200,
-            headers,
-            body: JSON.stringify({ message: "Email sent successfully" }),
-        };
-    } catch (error) {
-        console.error("Error:", error);
-        return {
-            statusCode: 500,
-            headers,
-            body: JSON.stringify({ error: "Failed to send email" }),
-        };
-    }
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ message: "Email sent successfully" }),
+    };
+  } catch (error) {
+    console.error("Error:", error);
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ error: "Failed to send email" }),
+    };
+  }
 };
