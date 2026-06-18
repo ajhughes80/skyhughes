@@ -2,6 +2,8 @@
     max-width: 700px;
     margin: 0 auto;
     padding: 100px 24px 60px;
+    /* iOS home bar */
+    padding-bottom: max(60px, env(safe-area-inset-bottom));
 
     h1 {
         font-family: var(--heading);
@@ -10,6 +12,18 @@
         font-size: 36px;
         text-align: center;
         margin: 0 0 8px;
+
+        @media (max-width: 480px) {
+            font-size: 26px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 90px 20px 48px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 80px 16px 40px;
     }
 }
 
@@ -98,6 +112,8 @@
     font-size: 18px;
     font-weight: 500;
     padding: 14px 32px;
+    min-height: 52px;
+    width: 100%;
     border: none;
     border-radius: 8px;
     background: var(--accent);
@@ -105,6 +121,7 @@
     cursor: pointer;
     transition: opacity 0.3s;
     margin-top: 8px;
+    box-sizing: border-box;
 }
 
 .contact-page button:hover {

@@ -9,10 +9,27 @@
 .service-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 100px 24px 0;
+    padding: 100px 32px 60px;
+
+    @media (max-width: 768px) {
+        padding: 90px 20px 48px;
+    }
 
     @media (max-width: 480px) {
-        padding: 70px 14px 0;
+        padding: 80px 14px 40px;
+    }
+}
+
+.service-content h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+
+    @media (max-width: 768px) {
+        font-size: 1.7rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.4rem;
     }
 }
 
@@ -66,15 +83,6 @@
 
     .service-hero-overlay h1 {
         font-size: 1.6rem;
-    }
-}
-
-.service-content h1 {
-    font-size: 2rem;
-    margin-bottom: 8px;
-
-    @media (max-width: 480px) {
-        font-size: 1.5rem;
     }
 }
 
@@ -154,33 +162,44 @@
     align-items: center;
     gap: 24px;
     flex-wrap: wrap;
+    margin-top: 8px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
+        align-items: stretch;
     }
 }
 
 .service-cta .contact-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #2e7d32;
     color: #fff;
     padding: 14px 32px;
+    min-height: 52px;
     border-radius: 8px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
     transition: background 0.2s;
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         width: 100%;
-        text-align: center;
         box-sizing: border-box;
+        font-size: 1rem;
     }
 }
 
 .service-cta .contact-button:hover {
     background: #1b5e20;
+}
+
+.service-cta .back-link {
+    @media (max-width: 600px) {
+        text-align: center;
+    }
 }
 
 .back-link {

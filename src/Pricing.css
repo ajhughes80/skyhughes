@@ -9,10 +9,14 @@
 .pricing-content {
     max-width: 950px;
     margin: 0 auto;
-    padding: 80px 24px 0;
+    padding: 90px 24px 0;
+
+    @media (max-width: 768px) {
+        padding: 85px 20px 0;
+    }
 
     @media (max-width: 480px) {
-        padding: 70px 10px 0;
+        padding: 80px 14px 0;
     }
 }
 
@@ -149,6 +153,14 @@
 .pricing-cta {
     text-align: center;
     margin-top: 48px;
+    padding-bottom: max(48px, env(safe-area-inset-bottom));
+}
+
+@media (max-width: 480px) {
+    .pricing-cta .contact-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 @media (max-width: 768px) {

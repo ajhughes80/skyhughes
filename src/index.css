@@ -60,6 +60,11 @@ body {
   transition: background-color 5s ease;
   position: relative;
   overflow-x: hidden;
+  /* Prevent iOS font size inflation on rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Smooth tap experience */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body::after {
