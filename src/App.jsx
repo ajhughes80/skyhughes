@@ -1,46 +1,17 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Nav from './Nav'
+import { useNightMode } from './hooks/useNightMode'
 import heroPoster from './assets/Yonahmountain.png'
-import heroVideoWebm from './assets/skyhughes.webm'
 import heroVideoMp4 from './assets/skyhughes.mp4'
+import heroVideoMov from './assets/skyhughes.mov'
 import './App.css'
 
 function App() {
-  const [nightMode, setNightMode] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    document.body.classList.toggle('night-mode', nightMode)
-  }, [nightMode])
+  const [nightMode, setNightMode] = useNightMode()
 
   return (
     <>
-      <header className="site-nav">
-        <Link to="/" className="nav-logo">🇺🇸 SkyHughes</Link>
-        <button
-          className="hamburger"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className={`hamburger-line ${menuOpen ? 'open' : ''}`}></span>
-          <span className={`hamburger-line ${menuOpen ? 'open' : ''}`}></span>
-          <span className={`hamburger-line ${menuOpen ? 'open' : ''}`}></span>
-        </button>
-        <nav className={menuOpen ? 'nav-open' : ''}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <a href="/#services" onClick={() => setMenuOpen(false)}>Services</a>
-          <Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
-          <Link to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-        </nav>
-        <button
-          className="mode-toggle"
-          onClick={() => setNightMode(!nightMode)}
-          aria-label={nightMode ? 'Switch to day mode' : 'Switch to night mode'}
-        >
-          {nightMode ? '🌙' : '☀️'}
-        </button>
-      </header>
+      <Nav nightMode={nightMode} onToggleNight={() => setNightMode(!nightMode)} />
 
       <div className="clouds clouds-top">
         <div className="cloud cloud-t1"></div>
@@ -59,9 +30,16 @@ function App() {
           poster={heroPoster}
           aria-label="SkyHughes aerial showreel"
         >
-          <source src={heroVideoWebm} type="video/webm" />
           <source src={heroVideoMp4} type="video/mp4" />
+          <source src={heroVideoMov} type="video/quicktime" />
         </video>
+
+        <div className="hero-overlay">
+          <h1>SkyHughes Aerial Media</h1>
+          <p>Professional drone photography &amp; videography for the Blue Ridge mountains and beyond.</p>
+          <Link to="/contact" className="hero-cta">Get a Free Quote</Link>
+        </div>
+
         <div className="drone-anim">
           <div className="drone-body">
             <div className="drone-arm drone-arm-fl"></div>
@@ -77,21 +55,12 @@ function App() {
           </div>
         </div>
       </div>
+
       <div className="clouds">
         <div className="cloud cloud-1"></div>
         <div className="cloud cloud-2"></div>
         <div className="cloud cloud-3"></div>
       </div>
-
-      <section id="center">
-        <div>
-          <h1>SkyHughes Aerial Media</h1>
-          <p>Professional drone services for stunning aerial photography and videography.</p>
-          <p>Contact us today to elevate your projects with breathtaking aerial perspectives.</p>
-
-        </div>
-      </section>
-
 
       <section id="services">
         <h2 className="services-heading">🎥 Aerial Video Services</h2>
@@ -106,7 +75,7 @@ function App() {
               <li>Property walkthrough (drone + exterior focus)</li>
             </ul>
             <p className="service-tagline">👉 Helps properties sell faster and stand out online</p>
-            <Link to="/services/real-estate" className="service-link">Click Here →</Link>
+            <Link to="/services/real-estate" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -118,7 +87,7 @@ function App() {
               <li>Social media promo clips</li>
             </ul>
             <p className="service-tagline">👉 Designed to increase bookings and visibility</p>
-            <Link to="/services/airbnb" className="service-link">Click Here →</Link>
+            <Link to="/services/airbnb" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -130,7 +99,7 @@ function App() {
               <li>Promotional videos for websites and ads</li>
             </ul>
             <p className="service-tagline">👉 Helps businesses attract more customers</p>
-            <Link to="/services/business" className="service-link">Click Here →</Link>
+            <Link to="/services/business" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -142,7 +111,7 @@ function App() {
               <li>Anniversary celebrations</li>
             </ul>
             <p className="service-tagline">👉 Cinematic storytelling for once-in-a-lifetime moments</p>
-            <Link to="/services/weddings" className="service-link">Click Here →</Link>
+            <Link to="/services/weddings" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -154,7 +123,7 @@ function App() {
               <li>Moving-out or legacy videos</li>
             </ul>
             <p className="service-tagline">👉 Capture meaningful moments to keep forever</p>
-            <Link to="/services/family" className="service-link">Click Here →</Link>
+            <Link to="/services/family" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -166,7 +135,7 @@ function App() {
               <li>Personal adventure videos</li>
             </ul>
             <p className="service-tagline">👉 Perfect for personal memories and social sharing</p>
-            <Link to="/services/outdoor" className="service-link">Click Here →</Link>
+            <Link to="/services/outdoor" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -178,7 +147,7 @@ function App() {
               <li>City/town promotional footage</li>
             </ul>
             <p className="service-tagline">👉 Great for marketing and community engagement</p>
-            <Link to="/services/events" className="service-link">Click Here →</Link>
+            <Link to="/services/events" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -190,7 +159,7 @@ function App() {
               <li>Project documentation videos</li>
             </ul>
             <p className="service-tagline">👉 Useful for builders, developers, and investors</p>
-            <Link to="/services/construction" className="service-link">Click Here →</Link>
+            <Link to="/services/construction" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -202,7 +171,7 @@ function App() {
               <li>Rural estate showcase</li>
             </ul>
             <p className="service-tagline">👉 Highlights scale and natural beauty</p>
-            <Link to="/services/farms" className="service-link">Click Here →</Link>
+            <Link to="/services/farms" className="service-link">Learn more →</Link>
           </div>
 
           <div className="service-card">
@@ -214,7 +183,7 @@ function App() {
               <li>Stock footage production</li>
             </ul>
             <p className="service-tagline">👉 For advertising, branding, and creative media use</p>
-            <Link to="/services/commercial" className="service-link">Click Here →</Link>
+            <Link to="/services/commercial" className="service-link">Learn more →</Link>
           </div>
         </div>
       </section>
@@ -226,6 +195,33 @@ function App() {
         <p>Let's bring your vision to life with stunning aerial footage.</p>
         <Link to="/contact" className="contact-button">Contact Us</Link>
       </section>
+
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <span className="footer-logo">🇺🇸 SkyHughes</span>
+            <p>Professional drone services in the Blue Ridge mountains of North Georgia.</p>
+          </div>
+          <div className="footer-links">
+            <strong>Quick Links</strong>
+            <nav>
+              <Link to="/">Home</Link>
+              <a href="/#services">Services</a>
+              <Link to="/gallery">Gallery</Link>
+              <Link to="/pricing">Pricing</Link>
+              <Link to="/contact">Contact</Link>
+            </nav>
+          </div>
+          <div className="footer-contact">
+            <strong>Get in Touch</strong>
+            <p><a href="tel:+18287676604">828-767-6604</a></p>
+            <p><a href="/contact">Send a message →</a></p>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} SkyHughes Aerial Media. FAA Part 107 Certified.</p>
+        </div>
+      </footer>
 
       <div className="trees-left">
         <div className="tree tree-1"></div>

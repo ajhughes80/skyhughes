@@ -1,20 +1,15 @@
 import { Link } from 'react-router-dom'
+import Nav from './Nav'
+import { useNightMode } from './hooks/useNightMode'
 import './Pricing.css'
 import './App.css'
 
 function Pricing() {
+    const [nightMode, setNightMode] = useNightMode()
+
     return (
         <div className="pricing-page">
-            <header className="site-nav">
-                <Link to="/" className="nav-logo">🇺🇸 SkyHughes</Link>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <a href="/#services">Services</a>
-                    <Link to="/gallery">Gallery</Link>
-                    <Link to="/pricing">Pricing</Link>
-                    <Link to="/contact">Contact</Link>
-                </nav>
-            </header>
+            <Nav nightMode={nightMode} onToggleNight={() => setNightMode(!nightMode)} />
 
             <div className="pricing-content">
                 <h1>💰 Service Pricing</h1>

@@ -1,7 +1,13 @@
+// Pexels video IDs — these are free stock drone videos used as placeholders
+// until actual SkyHughes footage is available. Replace pexelsId values with
+// your own S3-hosted videos when ready.
+// Attribution: Videos from Pexels (pexels.com), free to use under Pexels License.
+
 const services = {
     "real-estate": {
         title: "Real Estate & Property Marketing",
         icon: "🏠",
+        pexelsId: "5031099", // Aerial drone footage of residential neighborhood
         tagline: "Helps properties sell faster and stand out online",
         description:
             "Elevate your property listings with stunning aerial footage that showcases every angle. Our drone videography captures the full scale and beauty of any property — from sprawling estates to charming neighborhood homes.",
@@ -19,6 +25,7 @@ const services = {
     airbnb: {
         title: "Airbnb & Vacation Rental Content",
         icon: "🏡",
+        pexelsId: "31007111", // Aerial view of mountain cabins in the Smokies
         tagline: "Designed to increase bookings and visibility",
         description:
             "Make your rental property irresistible with aerial video that highlights the cabin, the views, and the experience. Perfect for Blue Ridge, Helen, and North Georgia mountain rentals.",
@@ -36,6 +43,7 @@ const services = {
     business: {
         title: "Business & Tourism Promotion",
         icon: "🏢",
+        pexelsId: "3775895", // Drone footage of a winery's vineyard
         tagline: "Helps businesses attract more customers",
         description:
             "Showcase your business from a perspective your competitors can\u0027t match. From wineries and resorts to adventure outfitters, aerial video brings your brand to life.",
@@ -53,6 +61,7 @@ const services = {
     weddings: {
         title: "Weddings & Special Events",
         icon: "💒",
+        pexelsId: "3812998", // Drone shot of a wedding venue
         tagline: "Cinematic storytelling for once-in-a-lifetime moments",
         description:
             "Your special day deserves to be captured from every angle — including the sky. Our drone videography adds a cinematic, breathtaking dimension to your wedding memories.",
@@ -70,6 +79,7 @@ const services = {
     family: {
         title: "Family & Personal Memory Films",
         icon: "👨‍👩‍👧‍👦",
+        pexelsId: "5597184", // Aerial drone footage of houses and trees
         tagline: "Capture meaningful moments to keep forever",
         description:
             "Life\u0027s most meaningful moments deserve to be remembered beautifully. Our drone videography adds a unique, sweeping perspective to your family memories.",
@@ -87,6 +97,7 @@ const services = {
     outdoor: {
         title: "Outdoor & Adventure Experiences",
         icon: "🏔️",
+        pexelsId: "9357202", // Aerial footage of lake, mountains, and blue sky
         tagline: "Perfect for personal memories and social sharing",
         description:
             "Whether you\u0027re conquering a mountain trail or paddling a river, our drone footage captures the thrill and beauty of your outdoor adventures from above.",
@@ -104,6 +115,7 @@ const services = {
     events: {
         title: "Events, Festivals & Community",
         icon: "🎪",
+        pexelsId: "34641671", // Aerial view of colorful outdoor community event
         tagline: "Great for marketing and community engagement",
         description:
             "From local festivals to community celebrations, aerial footage captures the energy and scale of your event like nothing else.",
@@ -121,6 +133,7 @@ const services = {
     construction: {
         title: "Construction & Land Development",
         icon: "🏗️",
+        pexelsId: "4457697", // Drone footage of a construction site
         tagline: "Useful for builders, developers, and investors",
         description:
             "Track your project\u0027s progress from start to finish with regular aerial documentation. Perfect for builders, developers, and investors who need a bird\u0027s-eye view.",
@@ -138,6 +151,7 @@ const services = {
     farms: {
         title: "Farms, Ranches & Rural Properties",
         icon: "🌾",
+        pexelsId: "4237250", // Drone footage of farmland
         tagline: "Highlights scale and natural beauty",
         description:
             "Showcase the full scope of your agricultural land, ranch, or rural property. Drone footage reveals the scale and beauty that ground-level photos can never capture.",
@@ -155,6 +169,7 @@ const services = {
     commercial: {
         title: "Commercial & Creative Projects",
         icon: "🎬",
+        pexelsId: "2169880", // Aerial view of a beautiful resort — cinematic & commercial
         tagline: "For advertising, branding, and creative media use",
         description:
             "From car dealership promos to brand storytelling, our aerial videography brings a professional, cinematic quality to your commercial and creative projects.",

@@ -915,6 +915,162 @@
   }
 }
 
+/* ===== Hero Overlay ===== */
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 40px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  text-align: left;
+  z-index: 2;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    color: #fff;
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 22px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    margin: 0 0 20px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    max-width: 560px;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+  }
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 13px 32px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: rgba(0, 0, 0, 0.75);
+  color: #e0e0e0;
+  padding: 40px 32px 0;
+  margin-top: 8px;
+
+  @media (max-width: 768px) {
+    padding: 28px 20px 0;
+  }
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 32px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.footer-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-links strong,
+.footer-contact strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-links nav a,
+.footer-contact a {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.footer-contact p {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 14px 0;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.5;
+  }
+}
+
 /* Night mode adjustments */
 
 /* ===== Drone Animation ===== */

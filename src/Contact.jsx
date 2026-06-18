@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Nav from './Nav'
+import { useNightMode } from './hooks/useNightMode'
 import './Contact.css'
 import './App.css'
 
-// REPLACE with your actual API Gateway URL after deploying the Lambda
-// Example: "https://abc123xyz.execute-api.us-east-1.amazonaws.com/contact"
 const API_URL = "https://8g2l17aby0.execute-api.us-east-1.amazonaws.com/prod/contact"
 
 function Contact() {
+    const [nightMode, setNightMode] = useNightMode()
     const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
     async function handleSubmit(e) {
@@ -41,15 +41,7 @@ function Contact() {
 
     return (
         <>
-            <header className="site-nav">
-                <Link to="/" className="nav-logo">SkyHughes</Link>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/gallery">Gallery</Link>
-                    <Link to="/pricing">Pricing</Link>
-                    <Link to="/contact">Contact</Link>
-                </nav>
-            </header>
+            <Nav nightMode={nightMode} onToggleNight={() => setNightMode(!nightMode)} />
 
             <div className="clouds clouds-top">
                 <div className="cloud cloud-t1"></div>
@@ -58,7 +50,6 @@ function Contact() {
             </div>
 
             <div className="contact-page">
-
                 <h1>📬 Contact Us</h1>
                 <p className="contact-subtitle">Have a project in mind? Fill out the form below and we'll get back to you!</p>
 

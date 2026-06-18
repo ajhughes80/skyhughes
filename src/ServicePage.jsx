@@ -1,26 +1,39 @@
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import services from './serviceData'
+import Nav from './Nav'
+import { useNightMode } from './hooks/useNightMode'
 import './ServicePage.css'
 import './App.css'
-import Yonahmountain from './assets/Yonahmountain.png'
+
+// Build Pexels CDN video URLs for a given ID.
+// Multiple sources are tried in order so the browser picks the first it can play.
+function pexelsSources(id) {
+    return [
+        `https://videos.pexels.com/video-files/${id}/${id}-hd_1920_1080_30fps.mp4`,
+        `https://videos.pexels.com/video-files/${id}/${id}-hd_1920_1080_25fps.mp4`,
+        `https://videos.pexels.com/video-files/${id}/${id}-hd_1280_720_30fps.mp4`,
+        `https://videos.pexels.com/video-files/${id}/${id}-hd_1280_720_25fps.mp4`,
+    ]
+}
+
+function pexelsPoster(id) {
+    return `https://images.pexels.com/videos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1200`
+}
 
 function ServicePage() {
     const { slug } = useParams()
+    const [nightMode, setNightMode] = useNightMode()
     const service = services[slug]
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [slug])
 
     if (!service) {
         return (
             <div className="service-page">
-                <header className="site-nav">
-                    <Link to="/" className="nav-logo">SkyHughes</Link>
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <a href="/#services">Services</a>
-                        <Link to="/gallery">Gallery</Link>
-                        <Link to="/pricing">Pricing</Link>
-                        <Link to="/contact">Contact</Link>
-                    </nav>
-                </header>
+                <Nav nightMode={nightMode} onToggleNight={() => setNightMode(!nightMode)} />
                 <div className="service-content">
                     <h1>Service Not Found</h1>
                     <p>Sorry, we couldn't find that service.</p>
@@ -30,29 +43,14 @@ function ServicePage() {
         )
     }
 
+    const { pexelsId } = service
+
     return (
         <div className="service-page">
-            <header className="site-nav">
-                <Link to="/" className="nav-logo">SkyHughes</Link>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <a href="/#services">Services</a>
-                    <Link to="/gallery">Gallery</Link>
-                    <Link to="/pricing">Pricing</Link>
-                    <Link to="/contact">Contact</Link>
-                </nav>
-            </header>
-
-            {slug === 'outdoor' && (
-                <div className="service-hero" style={{ backgroundImage: `url(${Yonahmountain})` }}>
-                    <div className="service-hero-overlay">
-                        <h1>{service.icon} {service.title}</h1>
-                    </div>
-                </div>
-            )}
+            <Nav nightMode={nightMode} onToggleNight={() => setNightMode(!nightMode)} />
 
             <div className="service-content">
-                {slug !== 'outdoor' && <h1>{service.icon} {service.title}</h1>}
+                <h1>{service.icon} {service.title}</h1>
                 <p className="service-tagline-page">{service.tagline}</p>
 
                 <section className="service-description">
@@ -67,6 +65,30 @@ function ServicePage() {
                         ))}
                     </ul>
                 </section>
+
+                {pexelsId && (
+                    <div className="service-inline-video">
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            poster={pexelsPoster(pexelsId)}
+                        >
+                            {pexelsSources(pexelsId).map((src) => (
+                                <source key={src} src={src} type="video/mp4" />
+                            ))}
+                        </video>
+                        <p className="service-credit">
+                            Demo video:{' '}
+                            <a href={`https://www.pexels.com/video/${pexelsId}/`} target="_blank" rel="noopener noreferrer">
+                                Pexels
+                            </a>{' '}
+                            — will be replaced with SkyHughes footage.
+                        </p>
+                    </div>
+                )}
 
                 <section className="service-why">
                     <h2>Why Choose SkyHughes?</h2>
