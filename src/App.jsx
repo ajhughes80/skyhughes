@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import heroImage from './assets/hero.png'
+import heroPoster from './assets/Yonahmountain.png'
+import heroVideoWebm from './assets/skyhughes.webm'
+import heroVideoMp4 from './assets/skyhughes.mp4'
 import './App.css'
 
 function App() {
@@ -47,7 +49,19 @@ function App() {
       </div>
 
       <div className="land">
-        <img className="base" src={heroImage} alt="SkyHughes aerial media hero" />
+        <video
+          className="base base-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster={heroPoster}
+          aria-label="SkyHughes aerial showreel"
+        >
+          <source src={heroVideoWebm} type="video/webm" />
+          <source src={heroVideoMp4} type="video/mp4" />
+        </video>
         <div className="drone-anim">
           <div className="drone-body">
             <div className="drone-arm drone-arm-fl"></div>

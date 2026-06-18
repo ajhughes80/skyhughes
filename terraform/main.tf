@@ -6,13 +6,21 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.5"
+    }
+    dns = {
+      source  = "hashicorp/dns"
+      version = "~> 3.4"
+    }
   }
 
   # Remote state in S3 — keeps terraform state safe and shared
   backend "s3" {
-    bucket = "skyhughes-terraform-state"
-    key    = "skyhughes/terraform.tfstate"
-    region = "us-east-1"
+    bucket  = "skyhughes-terraform-state"
+    key     = "skyhughes/terraform.tfstate"
+    region  = "us-east-1"
     profile = "prod"
   }
 }
@@ -47,6 +55,7 @@ provider "aws" {
 
 # Provider alias for us-east-1 (required for CloudFront ACM certs)
 provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
+  alias   = "us_east_1"
+  region  = "us-east-1"
+  profile = var.aws_profile
 }

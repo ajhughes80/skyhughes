@@ -6,6 +6,8 @@ variable "nonprod_access_role_name" {
 
 # Attach policy to NonProdAccessRole to allow assuming the cross-account role in main
 resource "aws_iam_role_policy" "assume_main_cross_account" {
+  count = var.environment == "non-prod" ? 1 : 0
+
   name = "AssumeMainCrossAccountRole"
   role = var.nonprod_access_role_name
 
@@ -13,8 +15,8 @@ resource "aws_iam_role_policy" "assume_main_cross_account" {
     Version = "2012-10-17",
     Statement = [
       {
-        Effect = "Allow",
-        Action = "sts:AssumeRole",
+        Effect   = "Allow",
+        Action   = "sts:AssumeRole",
         Resource = "arn:aws:iam::927535349173:role/CrossAccountAccessRole"
       }
     ]

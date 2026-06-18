@@ -414,6 +414,13 @@
     display: block;
     object-fit: cover;
   }
+
+  .base-video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-height: min(70vh, 900px);
+    background: #000;
+  }
 }
 
 #center {

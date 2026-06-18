@@ -14,3 +14,17 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Deploying To Production
+
+Use the one-command deploy workflow:
+
+```bash
+npm run deploy:prod
+```
+
+This command does the following:
+
+- Builds the site
+- Syncs `dist/` to the production S3 bucket from Terraform outputs
+- Invalidates the production CloudFront distribution from Terraform outputs
