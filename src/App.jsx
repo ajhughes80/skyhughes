@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import heroImage from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [nightMode, setNightMode] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -47,10 +47,7 @@ function App() {
       </div>
 
       <div className="land">
-        <video className="base" autoPlay muted playsInline loop>
-          <source src="/IntroHelen.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <img className="base" src={heroImage} alt="SkyHughes aerial media hero" />
         <div className="drone-anim">
           <div className="drone-body">
             <div className="drone-arm drone-arm-fl"></div>
