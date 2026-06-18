@@ -2,7 +2,6 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 0 0 60px;
-    background: #ffffff;
     min-height: 100vh;
 }
 
@@ -220,4 +219,28 @@
     a {
         color: inherit;
     }
+}
+
+/* ===== Night mode ===== */
+body.night-mode .service-why {
+    background: rgba(46, 125, 50, 0.12);
+    border-left-color: #4caf50;
+}
+
+body.night-mode .service-why h2,
+body.night-mode .service-why p,
+body.night-mode .service-content h1,
+body.night-mode .service-tagline-page,
+body.night-mode .service-description p,
+body.night-mode .service-features h2,
+body.night-mode .service-features li {
+    color: var(--text-h);
+}
+
+body.night-mode .service-tagline-page {
+    color: #66bb6a;
+}
+
+body.night-mode .back-link {
+    color: #66bb6a;
 }

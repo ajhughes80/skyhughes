@@ -2,7 +2,6 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 0 0 60px;
-    background: #ffffff;
     min-height: 100vh;
 }
 
@@ -161,6 +160,52 @@
         width: 100%;
         box-sizing: border-box;
     }
+}
+
+/* ===== Night mode ===== */
+body.night-mode .pricing-table thead {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body.night-mode .pricing-table th {
+    color: #aaa;
+    border-bottom-color: #333;
+}
+
+body.night-mode .pricing-table td {
+    color: #ddd;
+    border-bottom-color: #2a2a2a;
+}
+
+body.night-mode .pricing-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+body.night-mode .pricing-table .price {
+    color: #66bb6a;
+}
+
+body.night-mode .travel-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #333;
+}
+
+body.night-mode .travel-distance {
+    color: #e0e0e0;
+}
+
+body.night-mode .travel-fee {
+    color: #ccc;
+}
+
+body.night-mode .travel-fee.free {
+    color: #66bb6a;
+}
+
+body.night-mode .pricing-section h2,
+body.night-mode .pricing-content h1,
+body.night-mode .pricing-subtitle {
+    color: var(--text-h);
 }
 
 @media (max-width: 768px) {

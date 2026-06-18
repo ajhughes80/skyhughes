@@ -5,6 +5,32 @@
     min-height: 100vh;
 }
 
+/* ===== Night mode ===== */
+body.night-mode .gallery-coming-soon {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+body.night-mode .gallery-coming-soon h2 {
+    color: var(--text-h);
+}
+
+body.night-mode .gallery-content h1,
+body.night-mode .gallery-subtitle {
+    color: var(--text-h);
+}
+
+body.night-mode .gallery-filter-btn {
+    border-color: #66bb6a;
+    color: #66bb6a;
+
+    &:hover,
+    &.active {
+        background: #2e7d32;
+        color: #fff;
+    }
+}
+
 .gallery-content {
     max-width: 1100px;
     margin: 0 auto;
